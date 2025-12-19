@@ -1,23 +1,26 @@
 ---
-// Destructure the properties from Astro.props
+// Extraer las propiedades de Astro.props
 const { title } = Astro.props;
 
-// Define TypeScript interface for the properties
+// Definir la interfaz TypeScript para las propiedades
 interface Props {
   title: string;
 }
-// Define CSS classes for styling the button
+
+// Definir clases CSS para estilizar el botón
+// CAMBIO: Se cambió text-neutral-700 a text-white para contraste sobre rojo
 const baseClasses =
-  "inline-flex w-full items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-sm font-bold text-neutral-700 focus-visible:ring-3 outline-hidden transition duration-300";
+  "inline-flex w-full items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-sm font-bold text-white focus-visible:ring-3 outline-none transition duration-300";
 const borderClasses = "border border-transparent";
-const bgColorClasses = "bg-yellow-400 dark:focus:outline-hidden";
-const hoverClasses = "hover:bg-yellow-500";
+// CAMBIO: bg-yellow-400 a bg-red-600 (Color de marca)
+const bgColorClasses = "bg-red-600 dark:focus:outline-none";
+// CAMBIO: hover:bg-yellow-500 a hover:bg-red-700 (Efecto hover más oscuro)
+const hoverClasses = "hover:bg-red-700";
 const fontSizeClasses = "2xl:text-base";
 const disabledClasses = "disabled:pointer-events-none disabled:opacity-50";
 const ringClasses = "ring-zinc-500 dark:ring-zinc-200";
 ---
 
-<!-- Styled submit button with dynamic title -->
 <button
   type="submit"
   class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${hoverClasses} ${fontSizeClasses} ${disabledClasses} ${ringClasses}`}

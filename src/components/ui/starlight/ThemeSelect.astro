@@ -1,10 +1,9 @@
-<!-- Dark Theme Toggle Button -->
 <button
   type="button"
-  aria-label="Dark Theme Toggle"
-  title="Toggle theme"
+  aria-label="Cambiar a tema oscuro"
+  title="Cambiar a tema oscuro"
   id="dark-theme-toggle"
-  class="group flex h-8 w-8 items-center justify-center rounded-full font-medium text-neutral-600 outline-hidden ring-zinc-500 transition duration-300 hover:bg-neutral-200 hover:text-orange-400"
+  class="group flex h-8 w-8 items-center justify-center rounded-full font-medium text-neutral-600 outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-200 hover:text-red-600"
   data-hs-theme-click-value="dark"
 >
   <svg
@@ -22,13 +21,12 @@
   </svg>
 </button>
 
-<!-- Light Theme Toggle Button -->
 <button
   type="button"
-  aria-label="Light Theme Toggle"
-  title="Toggle theme"
+  aria-label="Cambiar a tema claro"
+  title="Cambiar a tema claro"
   id="light-theme-toggle"
-  class="group flex hidden h-8 w-8 items-center justify-center rounded-full font-medium text-neutral-400 outline-hidden ring-zinc-500 transition duration-300 hover:bg-neutral-700 hover:text-orange-400"
+  class="group hidden h-8 w-8 items-center justify-center rounded-full font-medium text-neutral-400 outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-700 hover:text-red-500"
   data-hs-theme-click-value="light"
 >
   <svg
@@ -56,17 +54,21 @@
 </button>
 
 <script>
-  // Define the Theme type
   type Theme = "light" | "dark";
 
-  // Function to set the theme
+  /**
+   * Establece el tema en el documento, guarda en localStorage 
+   * y actualiza la visibilidad de los botones.
+   */
   function setTheme(theme: Theme): void {
     document.documentElement.setAttribute("data-theme", theme);
     localStorage.setItem("starlight-theme", theme);
     updateButtons(theme);
   }
 
-  // Function to update the button visibility
+  /**
+   * Controla qué botón mostrar según el tema activo.
+   */
   function updateButtons(theme: Theme): void {
     const darkButton = document.getElementById("dark-theme-toggle");
     const lightButton = document.getElementById("light-theme-toggle");
@@ -80,7 +82,7 @@
     }
   }
 
-  // Event listeners for theme toggle buttons
+  // Listeners para los clics en los botones
   document
     .getElementById("dark-theme-toggle")
     ?.addEventListener("click", () => {
@@ -93,7 +95,7 @@
       setTheme("light");
     });
 
-  // Initial theme setup
+  // Configuración inicial del tema al cargar el DOM
   document.addEventListener("DOMContentLoaded", () => {
     const storedTheme = localStorage.getItem("starlight-theme") as Theme | null;
     const theme: Theme =

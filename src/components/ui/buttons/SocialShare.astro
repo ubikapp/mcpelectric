@@ -1,12 +1,12 @@
 ---
 import Icon from "@components/ui/icons/Icon.astro";
-// Destructure the properties from Astro.props
+// Desestructurar las propiedades de Astro.props
 const {
   pageTitle,
-  title = Astro.currentLocale === "fr" ? "Partager" : "Share",
+  title = Astro.currentLocale === "fr" ? "Partager" : "Compartir",
 } = Astro.props;
 
-// Define TypeScript interface for the properties
+// Definir la interfaz TypeScript para las propiedades
 interface Props {
   pageTitle: string;
   title?: string;
@@ -45,7 +45,7 @@ const socialPlatforms: SocialPlatform[] = [
   <button
     id="hs-dropup"
     type="button"
-    class="hs-dropdown-toggle inline-flex items-center gap-x-2 rounded-lg px-4 py-3 text-sm font-medium text-neutral-600 outline-hidden ring-zinc-500 transition duration-300 hover:bg-neutral-100 hover:text-neutral-700 focus-visible:ring-3 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:outline-hidden"
+    class="hs-dropdown-toggle inline-flex items-center gap-x-2 rounded-lg px-4 py-3 text-sm font-medium text-neutral-600 outline-none ring-zinc-500 transition duration-300 hover:bg-neutral-100 hover:text-red-600 focus-visible:ring-3 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:bg-neutral-700 dark:hover:text-red-500 dark:focus:outline-none"
   >
     <Icon name="share" />
 
@@ -60,14 +60,14 @@ const socialPlatforms: SocialPlatform[] = [
       {
         socialPlatforms.map((platform) => (
           <a
-            class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-200 focus:bg-neutral-100  focus:outline-hidden dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 "
+            class="flex items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-200 hover:text-red-600 focus:bg-neutral-100 focus:outline-none dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-red-500 dark:focus:bg-neutral-700"
             href={platform.url}
             target="_blank"
             rel="noopener noreferrer"
-            aria-label={`Share on ${platform.name}`}
+            aria-label={`Compartir en ${platform.name}`}
           >
             <Icon name={platform.svg} />
-            Share on {platform.name}
+            Compartir en {platform.name}
           </a>
         ))
       }
@@ -75,8 +75,8 @@ const socialPlatforms: SocialPlatform[] = [
     <div class="py-2 first:pt-0 last:pb-0">
       <button
         type="button"
-        class="js-clipboard hover:text-dark focus-visible:ring-secondary group inline-flex w-full items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-200 focus:bg-neutral-100 focus:outline-hidden focus-visible:outline-hidden focus-visible:ring-1 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700"
-        data-clipboard-success-text="Copied"
+        class="js-clipboard hover:text-red-600 focus-visible:ring-secondary group inline-flex w-full items-center gap-x-3.5 rounded-lg px-3 py-2 text-sm text-neutral-700 hover:bg-neutral-200 focus:bg-neutral-100 focus:outline-none focus-visible:outline-none focus-visible:ring-1 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-red-500 dark:focus:bg-neutral-700"
+        data-clipboard-success-text="Copiado"
       >
         <svg
           class="js-clipboard-default h-4 w-4 transition group-hover:rotate-6"
@@ -108,19 +108,16 @@ const socialPlatforms: SocialPlatform[] = [
         >
           <polyline points="20 6 9 17 4 12"></polyline>
         </svg>
-        <span class="js-clipboard-success-text">Copy link</span>
+        <span class="js-clipboard-success-text">Copiar enlace</span>
       </button>
     </div>
   </div>
 </div>
 
-<!--Import the necessary Clipboard plugin-->
-<!-- https://clipboardjs.com/ -->
-
 <script>
   import ClipboardJS from "clipboard";
 
-  // Initialization of Clipboard
+  // Inicialización de Clipboard
   (function () {
     window.addEventListener("load", () => {
       const clipboards =

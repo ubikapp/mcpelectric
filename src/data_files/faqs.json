@@ -1,29 +1,29 @@
 {
-  "subTitle": "Ask us anything about our brand and products, and get factual responses.",
+  "subTitle": "Respuestas claras sobre nuestros servicios de ingeniería, automatización y soporte técnico.",
   "faqs": [
     {
-      "question": "What types of tools are included in the Starter Kit?",
-      "answer": "The Starter Kit features essential hand and power tools for diverse DIY projects, including hammers, drills, screwdrivers, and a variety of fasteners. It's a curated selection to help beginners and experienced DIYers alike tackle most home improvement tasks."
+      "question": "¿Realizan proyectos fuera de Punta Arenas?",
+      "answer": "Sí. Nuestra base está en Punta Arenas, pero prestamos servicios en toda la región de Magallanes, incluyendo Puerto Natales, Porvenir, Puerto Williams y zonas aisladas (centros de cultivo, estancias y faros)."
     },
     {
-      "question": "Can I upgrade from the Starter Kit to the Professional Toolbox?",
-      "answer": "Absolutely! You can upgrade to the Professional Toolbox at any time to access a wider range of high-quality tools, enjoy priority customer support, and receive exclusive content. Contact our support team for a seamless transition."
+      "question": "¿Qué tipo de certificaciones entregan?",
+      "answer": "Todos nuestros proyectos eléctricos cumplen estrictamente con la normativa de la SEC (Superintendencia de Electricidad y Combustibles). Tramitamos las declaraciones TE1 (Instalaciones Interiores) y TE4 (Generación Distribuida/Solar) según corresponda."
     },
     {
-      "question": "What discounts are available for bulk orders through the Professional Toolbox plan?",
-      "answer": "Professional Toolbox members are entitled to exclusive discounts on bulk orders, the percentage of which may vary depending on the order volume. Get in touch with us to discuss your needs, and we'll provide a tailored discount structure."
+      "question": "¿Con qué marcas de automatización trabajan?",
+      "answer": "No estamos atados a un solo proveedor, pero priorizamos marcas de calidad mundial para garantizar repuestos y fiabilidad. Trabajamos frecuentemente con Schneider Electric, Siemens, ABB, Rockwell Automation y sistemas marinos NMEA2000."
     },
     {
-      "question": "What kind of customer support can I expect?",
-      "answer": "All our customers receive dedicated email support. With the Starter Kit, you'll receive our standard support, while the Professional Toolbox plan upgrades you to priority support, meaning faster response times and specialized assistance."
+      "question": "¿Ofrecen contratos de mantenimiento mensual?",
+      "answer": "Absolutamente. Ofrecemos planes de mantenimiento preventivo para plantas industriales y flotas navieras. Estos contratos pueden incluir visitas periódicas, termografía infrarroja y análisis de calidad de energía para prevenir fallas críticas."
     },
     {
-      "question": "How current are the online resources and tutorials?",
-      "answer": "We regularly update our online resources and tutorials to reflect the latest trends in DIY and construction, as well as introductions to new tools and techniques. Our material aims to be comprehensive and user-friendly for all skill levels."
+      "question": "¿Hacen integración de sistemas para barcos?",
+      "answer": "Sí, tenemos una división especializada en el sector naval. Integramos sistemas de monitoreo de motores, alarmas de sentina, niveles de estanque y navegación, centralizando todo en pantallas HMI intuitivas para la tripulación."
     },
     {
-      "question": "Does ScrewFast offer services for large-scale construction projects?",
-      "answer": "Yes, our Enterprise Solutions are designed for larger companies requiring comprehensive services. We provide consultation, planning, and supply of high-grade tools and materials, as well as staffing solutions for substantial construction needs. Contact us for a customized quote."
+      "question": "¿Pueden automatizar una máquina antigua?",
+      "answer": "En la mayoría de los casos, sí. Realizamos 'Retrofitting', que consiste en actualizar el tablero de control, sensores y PLC de una máquina antigua para modernizarla, mejorar su seguridad y extraer datos de producción sin tener que comprar una máquina nueva."
     }
   ]
 }

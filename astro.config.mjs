@@ -9,77 +9,57 @@ import mdx from "@astrojs/mdx";
 // https://astro.build/config
 export default defineConfig({
   // https://docs.astro.build/en/guides/images/#authorizing-remote-images
-  site: "https://screwfast.uk",
+  site: "https://mcpelectric.cl",
   image: {
     domains: ["images.unsplash.com"],
   },
-  // i18n: {
-  //   defaultLocale: "en",
-  //   locales: ["en", "fr"],
-  //   fallback: {
-  //     fr: "en",
-  //   },
-  //   routing: {
-  //     prefixDefaultLocale: false,
-  //   },
-  // },
+  
   prefetch: true,
   integrations: [
     sitemap({
       i18n: {
-        defaultLocale: "en", // All urls that don't contain language prefix will be treated as default locale
+        defaultLocale: "es", // Español como idioma principal
         locales: {
-          en: "en", // The `defaultLocale` value must present in `locales` keys
-          fr: "fr",
+          es: "es",
+          en: "en", // Mantenemos inglés opcional por si decides traducir
         },
       },
     }),
     starlight({
-      title: "ScrewFast Docs",
-      // https://github.com/withastro/starlight/blob/main/packages/starlight/CHANGELOG.md
-      // If no Astro and Starlight i18n configurations are provided, the built-in default locale is used in Starlight and a matching Astro i18n configuration is generated/used.
-      // If only a Starlight i18n configuration is provided, an equivalent Astro i18n configuration is generated/used.
-      // If only an Astro i18n configuration is provided, the Starlight i18n configuration is updated to match it.
-      // If both an Astro and Starlight i18n configurations are provided, an error is thrown.
+      title: "Documentación MCP",
+      defaultLocale: "root", // Define la raíz como el idioma por defecto configurado abajo
       locales: {
         root: {
-          label: "English",
-          lang: "en",
+          label: "Español",
+          lang: "es",
         },
-        de: { label: "Deutsch", lang: "de" },
-        es: { label: "Español", lang: "es" },
-        fa: { label: "Persian", lang: "fa", dir: "rtl" },
-        fr: { label: "Français", lang: "fr" },
-        ja: { label: "日本語", lang: "ja" },
-        "zh-cn": { label: "简体中文", lang: "zh-CN" },
+        en: { 
+          label: "English", 
+          lang: "en" 
+        },
       },
-      // https://starlight.astro.build/guides/sidebar/
+      // Barra lateral adaptada a Ingeniería Eléctrica
       sidebar: [
         {
-          label: "Quick Start Guides",
+          label: "Protocolos de Seguridad",
           translations: {
-            de: "Schnellstartanleitungen",
-            es: "Guías de Inicio Rápido",
-            fa: "راهنمای شروع سریع",
-            fr: "Guides de Démarrage Rapide",
-            ja: "クイックスタートガイド",
-            "zh-cn": "快速入门指南",
+            en: "Safety Protocols",
           },
           autogenerate: { directory: "guides" },
         },
         {
-          label: "Tools & Equipment",
+          label: "Manuales de Equipos",
           items: [
-            { label: "Tool Guides", link: "tools/tool-guides/" },
-            { label: "Equipment Care", link: "tools/equipment-care/" },
+            { label: "Instrumentación", link: "tools/tool-guides/" },
+            { label: "Mantenimiento", link: "tools/equipment-care/" },
           ],
         },
         {
-          label: "Construction Services",
+          label: "Servicios Técnicos",
           autogenerate: { directory: "construction" },
         },
         {
-          label: "Advanced Topics",
+          label: "Normativa SEC",
           autogenerate: { directory: "advanced" },
         },
       ],
@@ -87,7 +67,12 @@ export default defineConfig({
         {
           icon: "github",
           label: "GitHub",
-          href: "https://github.com/mearashadowfax/ScrewFast",
+          href: "https://github.com/", // Puedes poner tu repo o eliminar esto si es privado
+        },
+        {
+          icon: "email",
+          label: "Contacto",
+          href: "mailto:contacto@mcpelectric.cl",
         },
       ],
       disable404Route: true,
@@ -105,14 +90,14 @@ export default defineConfig({
           tag: "meta",
           attrs: {
             property: "og:image",
-            content: "https://screwfast.uk" + "/social.webp",
+            content: "https://mcpelectric.cl" + "/social.webp",
           },
         },
         {
           tag: "meta",
           attrs: {
             property: "twitter:image",
-            content: "https://screwfast.uk" + "/social.webp",
+            content: "https://mcpelectric.cl" + "/social.webp",
           },
         },
       ],

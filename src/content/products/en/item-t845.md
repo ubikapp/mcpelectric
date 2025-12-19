@@ -1,55 +1,55 @@
 ---
 title: "SF-TB T845"
-description: "Machine Screws"
+description: "Vis à machine"
 main:
   id: 1
   content: |
-    Introducing the SF-TB T845 – your go-to solution for precision fastening in machinery and equipment. This comprehensive set of machine screws is meticulously crafted to meet the stringent demands of industrial applications, ensuring secure and reliable fastening.
+    Découvrez le SF-TB T845 – votre solution de prédilection pour la fixation de précision dans les machines et équipements. Cet ensemble complet de vis à machine est méticuleusement conçu pour répondre aux exigences strictes des applications industrielles, garantissant une fixation sécurisée et fiable.
   imgCard: "@/images/product-image-1.avif"
   imgMain: "@/images/product-image-main-1.avif"
-  imgAlt: "Mockup boxes of machine screws set"
+  imgAlt: "Maquettes de boîtes de vis à machine"
 tabs:
   - id: "tabs-with-card-item-1"
     dataTab: "#tabs-with-card-1"
     title: "Description"
   - id: "tabs-with-card-item-2"
     dataTab: "#tabs-with-card-2"
-    title: "Specifications"
+    title: "Spécifications"
   - id: "tabs-with-card-item-3"
     dataTab: "#tabs-with-card-3"
-    title: "Blueprints"
+    title: "Plans"
 longDescription:
-  title: "Precision Fastening Solutions"
+  title: "Solutions de fixation de précision"
   subTitle: |
-    The SF-TB T845 Machine Screws offer unparalleled precision and reliability for industrial applications, ensuring seamless operation and longevity for your machinery and equipment.
-  btnTitle: "Contact sales to learn more"
+    Les vis à machine SF-TB T845 offrent une précision et une fiabilité inégalées pour les applications industrielles, garantissant un fonctionnement fluide et une longue durée de vie pour vos machines et équipements.
+  btnTitle: "Contactez le service commercial pour en savoir plus"
   btnURL: "#"
 descriptionList:
-  - title: "Durability"
-    subTitle: "Crafted from high-quality materials, these machine screws are built to withstand the rigors of industrial environments."
-  - title: "Precision Engineering"
-    subTitle: "Engineered with precision-cut threads and exact specifications, ensuring a tight and secure fit for every application."
-  - title: "Versatility"
-    subTitle: "Suitable for a wide range of machinery and equipment, providing versatile fastening solutions for various industrial needs."
+  - title: "Durabilité"
+    subTitle: "Fabriquées à partir de matériaux de haute qualité, ces vis à machine sont conçues pour résister aux rigueurs des environnements industriels."
+  - title: "Ingénierie de précision"
+    subTitle: "Conçues avec des filets coupés avec précision et des spécifications exactes, garantissant un ajustement serré et sécurisé pour chaque application."
+  - title: "Polyvalence"
+    subTitle: "Adaptées à une large gamme de machines et d'équipements, offrant des solutions de fixation polyvalentes pour divers besoins industriels."
 specificationsLeft:
-  - title: "Material Composition"
-    subTitle: "Constructed from premium-grade steel or alloy for exceptional strength and durability."
-  - title: "Surface Finish"
-    subTitle: "Finished with a protective coating to enhance corrosion resistance and extend service life."
-  - title: "Quantity Per Set"
-    subTitle: "Each set contains a comprehensive assortment of machine screws to meet diverse industrial requirements."
-  - title: "Size Range"
-    subTitle: "Available in various sizes and lengths to accommodate different machinery and equipment specifications."
+  - title: "Composition du matériau"
+    subTitle: "Construites en acier ou alliage de qualité supérieure pour une résistance et une durabilité exceptionnelles."
+  - title: "Finition de surface"
+    subTitle: "Fini avec un revêtement protecteur pour améliorer la résistance à la corrosion et prolonger la durée de vie."
+  - title: "Quantité par ensemble"
+    subTitle: "Chaque ensemble contient un assortiment complet de vis à machine pour répondre aux divers besoins industriels."
+  - title: "Gamme de tailles"
+    subTitle: "Disponible en différentes tailles et longueurs pour s'adapter aux spécifications des machines et équipements."
 specificationsRight:
-  - title: "Thread Specifications"
-    subTitle: "Precision-engineered threads ensure optimal grip and reliability, even in high-vibration environments."
-  - title: "Load Capacity"
-    subTitle: "Designed to meet or exceed industry standards for load-bearing capacity, ensuring safe and reliable operation."
+  - title: "Spécifications du filetage"
+    subTitle: "Des filets conçus avec précision assurent une adhérence optimale et une fiabilité, même dans les environnements à haute vibration."
+  - title: "Capacité de charge"
+    subTitle: "Conçues pour répondre ou dépasser les normes industrielles en matière de capacité de charge, garantissant une opération sûre et fiable."
   - title: "Certifications"
-    subTitle: "Compliant with relevant industry standards and certifications, guaranteeing quality and reliability."
+    subTitle: "Conformes aux normes et certifications industrielles pertinentes, garantissant qualité et fiabilité."
   - title: "Applications"
-    subTitle: "Ideal for use in a wide range of industrial machinery, equipment, and assemblies that demand precise and secure fastening."
+    subTitle: "Idéal pour une utilisation dans une large gamme de machines industrielles, équipements et assemblages nécessitant une fixation précise et sécurisée."
 blueprints:
   first: "@/images/blueprint-1.avif"
-  second: "@/images/blueprint-2.avif"   
+  second: "@/images/blueprint-2.avif"  
 ---

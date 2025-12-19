@@ -1,5 +1,5 @@
 ---
-// Importing necessary components
+// Importar componentes necesarios
 import MainLayout from "@/layouts/MainLayout.astro";
 import PrimaryCTA from "@components/ui/buttons/PrimaryCTA.astro";
 import CardSmall from "@components/ui/cards/CardSmall.astro";
@@ -7,64 +7,57 @@ import CardWide from "@components/ui/cards/CardWide.astro";
 import FeaturesStatsAlt from "@components/sections/features/FeaturesStatsAlt.astro";
 import TestimonialsSectionAlt from "@components/sections/testimonials/TestimonialsSectionAlt.astro";
 
-// Importing necessary functions from Astro
 import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
 
-// Fetching all the product related content and sorting it by main.id
+// Obtener equipos/servicios desde la colección 'products' en español
 const product: CollectionEntry<"products">[] = (
   await getCollection("products", ({ id }) => {
-    return id.startsWith("en/");
+    return id.startsWith("es/");
   })
 ).sort(
   (a: CollectionEntry<"products">, b: CollectionEntry<"products">) =>
     a.data.main.id - b.data.main.id
 );
 
-// Define variables for page content
-const title: string = "Products";
+// Variables de contenido adaptadas a MCP Electric
+const title: string = "Equipos e Instrumentación";
 const subTitle: string =
-  "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts. Each of our products is crafted with precision and built to last, ensuring you have the right tool for every job.";
+  "Descubre la tecnología y precisión de los equipos utilizados por MCP Electric. Desde instrumentación certificada hasta sistemas de control avanzados, garantizamos calidad técnica en cada componente para tus proyectos industriales.";
 
-// Testimonial data that will be rendered in the component
+// Datos de testimonios reales para el sector eléctrico
 const testimonials = [
-  // First testimonial data
   {
     content:
-      " \"Since switching to ScrewFast's hardware tools, the efficiency on our construction sites has skyrocketed. The durability of the hex bolts and precision of the machine screws are simply unmatched. It's refreshing to work with a company that truly understands the daily demands of the industry.\" ",
-    author: "Jason Clark",
-    role: "Site Foreman | TopBuild",
-    avatarSrc:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    avatarAlt: "Image Description",
+      " \"La implementación del sistema de monitoreo NMEA2000 por parte de MCP Electric transformó la gestión de nuestra flota. La precisión de los datos y la robustez del equipamiento son excepcionales. Es vital contar con expertos que entiendan las exigencias del entorno marítimo en Magallanes.\" ",
+    author: "Ricardo Oyarzún",
+    role: "Gerente de Operaciones | Naviera Austral",
+    avatarSrc: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=1374&auto=format&fit=crop",
+    avatarAlt: "Descripción del avatar",
   },
-  // Second testimonial data
   {
     content:
-      " \"As an interior designer, I'm always looking for high-quality materials and tools that help bring my visions to life. ScrewFast's mixed screws assortment has been a game-changer for my projects, providing the perfect blend of quality and variety. The outstanding customer support was just the cherry on top!\" ",
-    author: "Maria Gonzalez",
-    role: "Interior Designer | Creative Spaces",
-    avatarSrc:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    avatarAlt: "Image Description",
+      " \"Como arquitecto especializado en proyectos sustentables, el diseño de tableros y la integración fotovoltaica de MCP Electric han sido fundamentales. Sus soluciones inteligentes no solo optimizan la energía, sino que cumplen con los más altos estándares de seguridad y normativa SEC.\" ",
+    author: "Elena Valdés",
+    role: "Arquitecta Senior | EkoDiseño",
+    avatarSrc: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop",
+    avatarAlt: "Descripción del avatar",
   },
-  // Third testimonial data
   {
     content:
-      " \"I've been a professional carpenter for over 15 years, and I can sincerely say that ScrewFast's tap bolts and nuts are some of the best I've used. They grip like no other, and I have full confidence in every joint and fixture. Plus, the service is impeccable – they truly care about my project's success.\" ",
-    author: "Richard Kim",
-    role: "Master Carpenter | WoodWright",
-    avatarSrc:
-      "https://images.unsplash.com/photo-1474176857210-7287d38d27c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    avatarAlt: "Image Description",
+      " \"Llevamos años confiando el mantenimiento correctivo y el análisis termográfico de nuestra planta a MCP Electric. Su instrumentación es de primer nivel y los reportes técnicos son clave para nuestra continuidad operativa. Un servicio impecable y cercano.\" ",
+    author: "Mauricio Lagos",
+    role: "Jefe de Mantenimiento | Industrial Sur",
+    avatarSrc: "https://images.unsplash.com/photo-1474176857210-7287d38d27c6?q=80&w=1470&auto=format&fit=crop",
+    avatarAlt: "Descripción del avatar",
   },
 ];
 
-const pageTitle: string = `Products | ${SITE.title}`;
+const pageTitle: string = `Productos y Equipos | ${SITE.title}`;
 const metaDescription =
-  "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts.";
-const ogTitle = "Hardware Tools | ScrewFast";
+  "Explora la instrumentación y los equipos eléctricos de alta precisión de MCP Electric, diseñados para entornos industriales y marítimos exigentes.";
+const ogTitle = "Equipos Eléctricos de Alta Gama | MCP Electric";
 ---
 
 <MainLayout
@@ -74,19 +67,19 @@ const ogTitle = "Hardware Tools | ScrewFast";
   structuredData={{
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "@id": "https://screwfast.uk/products",
-    url: "https://screwfast.uk/products",
-    name: "Hardware Tools | ScrewFast",
+    "@id": "https://mcpelectric.cl/productos",
+    url: "https://mcpelectric.cl/productos",
+    name: "Equipos Eléctricos e Instrumentación | MCP Electric",
     description:
-      "Explore the durability and precision of ScrewFast tools, designed for both professionals and enthusiasts.",
+      "Explora la instrumentación técnica y los sistemas de control de MCP Electric.",
     isPartOf: {
       "@type": "WebSite",
-      url: "https://screwfast.uk",
-      name: "ScrewFast",
+      url: "https://mcpelectric.cl",
+      name: "MCP Electric",
       description:
-        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+        "MCP Electric ofrece ingeniería, instrumentación y servicios eléctricos especializados.",
     },
-    inLanguage: "en-US",
+    inLanguage: "es-CL",
   }}
 >
   <div
@@ -101,16 +94,15 @@ const ogTitle = "Hardware Tools | ScrewFast";
         </h1>
         {
           subTitle && (
-            <p class="hidden max-w-(--breakpoint-sm) text-pretty text-neutral-600 md:block dark:text-neutral-400">
+            <p class="hidden max-w-2xl text-pretty text-neutral-600 md:block dark:text-neutral-400">
               {subTitle}
             </p>
           )
         }
       </div>
-      <PrimaryCTA title="Customer Stories" url="#testimonials" noArrow={true} />
+      <PrimaryCTA title="Testimonios" url="#testimonials" noArrow={true} />
     </div>
-    {/* Displaying products in alternating styles. Alternative product gets different card styling.
-    Maps through all product entries and displays them with either CardSmall or CardWide based on their position. */}
+
     <section class="grid grid-cols-1 gap-4 sm:grid-cols-3 md:gap-6 xl:gap-8">
       {
         product.map((product, index) => {
@@ -124,19 +116,22 @@ const ogTitle = "Hardware Tools | ScrewFast";
       }
     </section>
   </div>
-  {/* Features statistics section */}
+
+  {/* Sección de beneficios alternativos */}
   <FeaturesStatsAlt
-    title="Why Choose ScrewFast?"
-    subTitle="Transform your ideas into tangible results with ScrewFast tools. Whether you're starting with a sketch on a napkin or diving into a comprehensive construction project, our tools are engineered to help you build with confidence."
+    title="¿Por qué elegir nuestra tecnología?"
+    subTitle="Desde un diagnóstico preventivo hasta la implementación de una red SCADA, utilizamos equipos de medición certificados para asegurar que cada conexión sea eficiente y segura."
     benefits={[
-      "Robust and reliable tools for long-lasting performance.",
-      "Innovative solutions tailored to modern construction needs.",
-      "Customer support dedicated to your project's success.",
+      "Instrumentación calibrada para diagnósticos precisos.",
+      "Sistemas de control adaptados a condiciones climáticas extremas.",
+      "Soporte técnico experto basado en normativas SEC vigentes.",
     ]}
   />
-  {/* Testimonials section */}
-  <TestimonialsSectionAlt
-    title="What Our Customers Say"
-    testimonials={testimonials}
-  />
+
+  <section id="testimonials">
+    <TestimonialsSectionAlt
+      title="Confianza de nuestros clientes"
+      testimonials={testimonials}
+    />
+  </section>
 </MainLayout>

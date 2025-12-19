@@ -1,54 +1,55 @@
 // Define data structures for services and success stories
 export const servicesData = [
   {
-    title: "Explore Advice and Explanations",
+    title: "Ingeniería y Certificación",
     description:
-      "Dive deep into helpful guides and explanations for all of ScrewFast's features",
-    icon: "guides",
-    url: "#",
+      "Desarrollo de planos, memorias de cálculo y tramitación de declaraciones TE1/TE4 ante la SEC.",
+    icon: "guides", // Encaja bien con 'Documentación'
+    url: "/servicios",
   },
   {
-    title: "Discover Integrations",
+    title: "Integración de Sistemas",
     description:
-      "Supercharge Your Workflow. Seamless integrations with all your favorite tools",
-    icon: "puzzle",
-    url: "#",
+      "Unificación de protocolos (NMEA2000, Modbus, J1939) en interfaces HMI centralizadas e intuitivas.",
+    icon: "puzzle", // Encaja perfecto con 'Integración'
+    url: "/productos/integracion-sistemas",
   },
   {
-    title: "Expert Services",
-    description: "Go beyond tools with ScrewFast's expert services",
-    icon: "rocket",
-    url: "#",
-  },
-  {
-    title: "Cutting-Edge Tools",
+    title: "Automatización Industrial",
     description:
-      "Build Smarter, Faster. Experience next-level efficiency with ScrewFast's cutting-edge construction tools",
-    icon: "hammer",
-    url: "#",
+      "Programación de PLC y sistemas SCADA para optimizar procesos en plantas y embarcaciones.",
+    icon: "rocket", // Encaja con 'Tecnología/Avance'
+    url: "/servicios",
   },
   {
-    title: "Simple Plans",
+    title: "Montaje y Tableros",
     description:
-      "Boost your efficiency with ScrewFast's straightforward, value-driven plans",
-    icon: "sparks",
-    url: "#",
+      "Fabricación de tableros de fuerza y control (TDF) robustos, diseñados para ambientes hostiles.",
+    icon: "hammer", // Encaja con 'Construcción/Montaje'
+    url: "/productos/tableros-electricos",
   },
   {
-    title: "Community Forum",
-    description: "Learn, share, and connect with other ScrewFast users",
-    icon: "community",
-    url: "#",
+    title: "Energía Renovable",
+    description:
+      "Proyectos fotovoltaicos Off-Grid y On-Grid para reducir costos y huella de carbono.",
+    icon: "sparks", // Encaja con 'Energía/Electricidad'
+    url: "/productos/sistemas-fotovoltaicos",
+  },
+  {
+    title: "Mantenimiento y Soporte",
+    description: "Contratos de continuidad operativa, termografía y diagnóstico de fallas 24/7.",
+    icon: "community", // Encaja con 'Socios/Soporte al cliente'
+    url: "/contacto",
   },
 ];
 
 export const successStoriesData = [
   {
     image:
-      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-    alt: "Image Description",
+      "https://images.unsplash.com/photo-1581094794329-cd1096a7a7e8?q=80&w=1470&auto=format&fit=crop", // Foto de ingeniero industrial
+    alt: "Ingeniero revisando panel de control",
     description:
-      "See how ScrewFast has empowered businesses of all sizes to achieve outstanding results.",
-    learnMoreUrl: "#",
+      "Vea cómo MCP Electric ha modernizado la flota naval y las plantas de proceso más importantes de Magallanes.",
+    learnMoreUrl: "/blog", // O a una sección de casos de éxito si la creas
   },
 ];

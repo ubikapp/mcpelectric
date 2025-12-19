@@ -1,19 +1,22 @@
 @import 'tailwindcss';
 
 @layer base {
-    button:not(:disabled),
+  button:not(:disabled),
   [role="button"]:not(:disabled) {
     cursor: pointer;
   }
 }
 
-/* Dark mode colors. */
+/* COLORES MODO OSCURO (Dark Mode) */
 :root {
   --border: hsla(var(--border-neutral), 0.4);
   --backdrop-color: #272727cc;
-  --sl-color-accent: #ff801f;
-  --sl-color-accent-high: #ffa057;
-  --sl-color-accent-low: #562800;
+  
+  /* MCP Electric Red Palette */
+  --sl-color-accent: #dc2626;       /* Rojo Base */
+  --sl-color-accent-high: #f87171;  /* Rojo Claro */
+  --sl-color-accent-low: #450a0a;   /* Rojo Muy Oscuro */
+  
   --sl-color-black: #181818;
   --sl-color-gray-1: #eee;
   --sl-color-gray-2: #c2c2c2;
@@ -22,17 +25,22 @@
   --sl-color-gray-5: #383838;
   --sl-color-gray-6: #272727;
   --sl-color-white: #fff;
-  --list-marker-color: #fb923c;
+  
+  /* Color del marcador de lista (Bullet points) */
+  --list-marker-color: #ef4444; 
   --border-neutral: 0, 0%, 25.1%;
 }
 
-/* Light mode colors. */
+/* COLORES MODO CLARO (Light Mode) */
 :root[data-theme="light"] {
-  --border: hsla(var(--border-yellow), 0.4);
+  --border: hsla(var(--border-red), 0.4);
   --backdrop-color: #f6f6f699;
-  --sl-color-accent: #b73d00;
-  --sl-color-accent-high: #562800;
-  --sl-color-accent-low: #ffa057;
+  
+  /* MCP Electric Red Palette */
+  --sl-color-accent: #b91c1c;       /* Rojo Oscuro para contraste */
+  --sl-color-accent-high: #450a0a;  /* Texto casi negro/rojo */
+  --sl-color-accent-low: #fca5a5;   /* Fondo rojo pastel */
+  
   --sl-color-black: #fff;
   --sl-color-gray-1: #272727;
   --sl-color-gray-2: #383838;
@@ -42,10 +50,12 @@
   --sl-color-gray-6: #eee;
   --sl-color-gray-7: #f6f6f6;
   --sl-color-white: #181818;
-  --list-marker-color: #fb923c;
-  --border-yellow: 54.9, 96.7%, 88%;
+  
+  --list-marker-color: #dc2626;
+  --border-red: 0, 100%, 90%; /* HSL para borde rojo suave */
 }
 
+/* --- ESTRUCTURA DEL HEADER FLOTANTE --- */
 header {
   border: none !important;
   padding: 0 !important;
@@ -72,6 +82,7 @@ header > div:first-of-type {
   width: auto !important;
 }
 
+/* --- ESTILOS DE BARRA LATERAL Y CONTENIDO --- */
 #starlight__sidebar {
   border-radius: 1rem;
   margin-top: 2rem !important;
@@ -108,6 +119,7 @@ article.card {
   border-radius: 0.5rem;
 }
 
+/* Hover en enlaces de paginación */
 .pagination-links a:hover {
   border-color: var(--sl-color-accent);
 }
@@ -116,13 +128,17 @@ article.card {
   border-color: var(--sl-color-gray-4) !important;
 }
 
+/* --- ESTILOS DE CAJAS DE AVISO (ASIDES) --- */
+
+/* Tip/Consejo: Ahora en gradiente Rojo MCP */
 .starlight-aside--tip {
-  background: linear-gradient(45deg, #ff512f, #f09819);
+  background: linear-gradient(45deg, #dc2626, #991b1b); /* Rojo vibrante a oscuro */
   border: none;
   border-radius: 0.5rem;
-  color: #66350c;
+  color: #fff0f0; /* Texto casi blanco */
 }
 
+/* Nota: Mantenemos el azul para contraste técnico */
 .starlight-aside--note {
   background: linear-gradient(45deg, #00b4db, #2193b0);
   border: none;
@@ -135,13 +151,14 @@ article.card {
 }
 
 .starlight-aside--tip .starlight-aside__title {
-  color: #ffe0c2;
+  color: #fff;
 }
 
 .starlight-aside--note .starlight-aside__title {
   color: #bbf3fef7;
 }
 
+/* --- ESTILOS DE LISTAS PERSONALIZADOS --- */
 .sl-markdown-content ul:not(:where(.not-content *)) {
   list-style-type: none;
   padding-left: 0;
@@ -157,6 +174,7 @@ article.card {
   margin-top: 0.625rem;
 }
 
+/* El guión rojo personalizado a la izquierda de la lista */
 .sl-markdown-content ul:not(:where(.not-content *)) > li:before {
   background: var(--list-marker-color);
   border-radius: 1px;
@@ -168,6 +186,7 @@ article.card {
   width: 0.875rem;
 }
 
+/* --- MEDIA QUERIES --- */
 @media screen and (max-width: 800px) {
   mobile-starlight-toc > nav {
     border-radius: 1rem;

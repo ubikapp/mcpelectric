@@ -1,7 +1,8 @@
 import type { APIRoute, ImageMetadata } from "astro";
 import { getImage } from "astro:assets";
-import icon from "@images/icon.png";
-import maskableIcon from "@images/icon-maskable.png";
+import icon from "@images/icon.png"; 
+// Usaremos el mismo icono por defecto. Si tienes uno específico para 'maskable', cambia la importación.
+import maskableIcon from "@images/icon.png"; 
 
 interface Favicon {
   purpose: 'any' | 'maskable' | 'monochrome';
@@ -20,7 +21,7 @@ const favicons: Favicon[] = [
     purpose: 'maskable',
     src: maskableIcon,
     sizes,
-   },
+  },
 ];
 
 export const GET: APIRoute = async () => {
@@ -44,14 +45,16 @@ export const GET: APIRoute = async () => {
   );
 
   const manifest = {
-    short_name: "ScrewFast",
-    name: "ScrewFast",
+    short_name: "MCP Electric",
+    name: "MCP Electric | Ingeniería y Automatización",
+    description: "Servicios de ingeniería eléctrica, automatización y mantenimiento industrial en Magallanes.",
     icons,
-    display: "minimal-ui",
+    display: "standalone", // 'standalone' hace que parezca una app nativa sin barra de navegador
     id: "/",
     start_url: "/",
-    theme_color: "#FFEDD5",
-    background_color: "#262626",
+    theme_color: "#dc2626", // Rojo Corporativo
+    background_color: "#171717", // Gris oscuro neutral
+    lang: "es-CL",
   };
 
   return new Response(JSON.stringify(manifest));

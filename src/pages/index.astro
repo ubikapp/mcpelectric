@@ -7,141 +7,198 @@ import ClientsSection from "@components/sections/landing/ClientsSection.astro";
 import FeaturesGeneral from "@components/sections/features/FeaturesGeneral.astro";
 import FeaturesNavs from "@components/sections/features/FeaturesNavs.astro";
 import TestimonialsSection from "@components/sections/testimonials/TestimonialsSection.astro";
-import PricingSection from "@components/sections/pricing/PricingSection.astro";
+import PricingSection from "@components/sections/pricing/PricingSection.astro"; // <--- Restaurado
 import FAQ from "@components/sections/misc/FAQ.astro";
 import AnnouncementBanner from "@components/ui/banners/AnnouncementBanner.astro";
-import heroImage from "@images/hero-image.avif";
 import faqs from "@data/faqs.json";
-import features from "@data/features.json";
-import pricing from "@data/pricing.json";
-import featureImage from "@images/features-image.avif";
+import pricing from "@data/pricing.json"; // <--- Restaurado
 import construction from "@images/construction-image.avif";
 import tools from "@images/automated-tools.avif";
 import dashboard from "@images/dashboard-image.avif";
 import { partnersData } from "@/data_files/constants";
+import navImage from "@/images/nav.jpeg";
 
+// Avatares para la sección Hero
 const avatarSrcs: Array<string> = [
   "https://images.unsplash.com/photo-1568602471122-7832951cc4c5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1531927557220-a9e23c1e4794?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1541101767792-f9b2b1c4f127?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&&auto=format&fit=facearea&facepad=3&w=300&h=300&q=80",
   "https://images.unsplash.com/photo-1492562080023-ab3db95bfbce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=300&h=300&q=80",
 ];
+
+// Características principales de MCP Electric
+const featuresMcp = [
+  {
+    heading: "Automatización Industrial",
+    content: "Diseño e implementación de sistemas de control y monitoreo, incluyendo programación de PLC e integración de HMI/SCADA para optimizar procesos.",
+    svg: "dashboard",
+  },
+  {
+    heading: "Montajes Eléctricos",
+    content: "Ejecución de instalaciones eléctricas industriales y comerciales en alta, media y baja tensión, especializándonos en plantas de procesos.",
+    svg: "tools",
+  },
+  {
+    heading: "Mantenimiento y Termografía",
+    content: "Servicio de mantenimiento proactivo utilizando termografía para la detección temprana de fallas, asegurando la continuidad operativa.",
+    svg: "house",
+  },
+  {
+    heading: "Proyectos y Mediciones",
+    content: "Desarrollo de proyectos eléctricos desde la planificación hasta la ejecución, realizando mediciones técnicas para garantizar la eficiencia y seguridad.",
+    svg: "dashboard",
+  },
+];
+
+// Testimonios adaptados al contexto local e industrial
+const testimonialsData = [
+  {
+    content:
+      " \"La capacidad técnica de MCP Electric para resolver la integración de sistemas en nuestra flota ha sido fundamental. Su respuesta en Punta Arenas es rápida y efectiva, minimizando nuestros tiempos de inactividad.\" ",
+    author: "Carlos Muñoz",
+    role: "Jefe de Flota | Naviera Austral",
+    avatarSrc:
+      "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
+  },
+  {
+    content:
+      " \"Excelente ejecución en la automatización de nuestras cámaras de frío. El sistema HMI implementado es intuitivo y nos permite un control total de las variables críticas.\" ",
+    author: "Andrea Lagos",
+    role: "Gerente de Planta | Frigorífico Magallanes",
+    avatarSrc:
+      "https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1376&auto=format&fit=crop",
+  },
+  {
+    content:
+      " \"Han demostrado un compromiso real con la seguridad y la normativa en cada montaje eléctrico realizado en nuestras instalaciones. Un socio estratégico confiable.\" ",
+    author: "Roberto Oyarzún",
+    role: "Supervisor de Mantenimiento | Industrial Sur",
+    avatarSrc:
+      "https://images.unsplash.com/photo-1474176857210-7287d38d27c6?q=80&w=1470&auto=format&fit=crop",
+  },
+];
 ---
 
 <MainLayout>
   <AnnouncementBanner
-    btnId="dismiss-button"
-    btnTitle="Explore ScrewFast on GitHub"
-    url="https://github.com/mearashadowfax/ScrewFast"
+    btnId="banner-contacto"
+    title="¿Necesitas asistencia técnica?"
+    btnTitle="Reserva tu hora de atención"
+    url="/contacto"
   />
 
   <HeroSection
-    title=`Equip Your Projects with <span
-        class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>`
-    subTitle="Top-quality hardware tools and expert construction services for every project need."
-    primaryBtn="Start Exploring"
-    primaryBtnURL="/products"
-    secondaryBtn="Contact Sales Team"
-    secondaryBtnURL="/contact"
+    title=`Soluciones Eléctricas <span class="text-red-600 dark:text-red-500">Industriales</span>`
+    subTitle="Expertos en automatización, montajes eléctricos y mantenimiento preventivo. Garantizamos eficiencia, seguridad y continuidad operativa para tus proyectos en Magallanes."
+    primaryBtn="Ver Servicios"
+    primaryBtnURL="/servicios"
+    secondaryBtn="Solicitar Cotización"
+    secondaryBtnURL="/contacto"
     withReview={true}
     avatars={avatarSrcs}
-    rating=`<span class="font-bold">4.8</span> / 5`
-    starCount={4}
-    reviews=`From Over <span class="font-bold">12.8k</span> Reviews`
-    src={heroImage}
-    alt="Stack of ScrewFast product boxes containing assorted hardware tools"
+    rating=`<span class="font-bold">4.9</span> / 5`
+    starCount={5}
+    reviews=`Más de <span class="font-bold">150</span> Proyectos Ejecutados`
+    src={navImage}
+    alt="Ingeniería eléctrica y automatización industrial"
   />
 
   <ClientsSection
-    title="Trusted by Industry Leaders"
-    subTitle="Experience the reliability chosen by industry giants."
+    title="Confían en Nosotros"
+    subTitle="La fiabilidad y excelencia técnica elegida por los líderes de la industria."
     partners={partnersData}
   />
 
   <FeaturesGeneral
-    title="Meeting Industry Demands"
-    subTitle="At ScrewFast, we tackle the unique challenges encountered in the hardware and construction sectors. From cutting-edge tools to expert services, we're dedicated to helping you overcome obstacles and achieve your goals."
-    src={featureImage}
-    alt="ScrewFast products in floating boxes"
-    features={features}
+    title="Comprometidos con la Calidad y Seguridad"
+    subTitle="Con vasta experiencia en el sector industrial, abordamos los desafíos eléctricos más complejos, desde la automatización de plantas hasta el mantenimiento preventivo."
+    src={null}
+    alt="Servicios MCP Electric"
+    features={featuresMcp}
   />
 
   <FeaturesNavs
-    title=`Customize <span class="text-yellow-500 dark:text-yellow-400">ScrewFast</span>'s offerings to perfectly suit your hardware and construction needs.`
+    title=`Innovación y tecnología aplicada: Proyectos emblemáticos de <span class="text-red-600 dark:text-red-500">MCP Electric</span>.`
     tabs={[
       {
-        heading: "Cutting-Edge Tools",
+        heading: "Agunza Rigel (Naval)",
         content:
-          "Empower your projects with ScrewFast's cutting-edge tools. Experience enhanced efficiency in construction management with our sophisticated automated solutions.",
-        svg: "tools",
-        src: tools,
-        alt: "Yellow and black heavy equipment on brown grass field",
+          "Integración completa de sistemas eléctricos y control naval. Incluye HMI centralizado para gestión de alarmas y motores, sistema de carga inteligente y adecuación a normativas internacionales.",
+        svg: "house",
+        src: navImage,
+        alt: "Modernización eléctrica Agunza Rigel",
         first: true,
       },
       {
-        heading: "Intuitive Dashboards",
+        heading: "Sistema BAIA (Seguridad)",
         content:
-          "Navigate with ease using ScrewFast's intuitive dashboards. Set up and oversee your projects seamlessly, with user-friendly interfaces designed for quick and effective workflow management.",
-        svg: "dashboard",
-        src: dashboard,
-        alt: "A screenshot or graphic representation of the intuitive dashboard",
+          "Sistema automatizado de achique y red de emergencia para pontones. Opera con respaldo de baterías de litio e inversores, garantizando energía continua y monitoreo remoto ante inundaciones.",
+        svg: "tools",
+        src: tools,
+        alt: "Sistema de respaldo energético BAIA",
         second: true,
       },
       {
-        heading: "Robust Features",
+        heading: "Hospital Naval (Frío)",
         content:
-          "Minimize complexity, maximize productivity. ScrewFast's robust features are engineered to streamline your construction process, delivering results that stand out for their excellence.",
+          "Automatización de cámaras de congelado con estándares hospitalarios. Implementación de HMI para control de variables críticas (temperatura, alarmas) y conectividad remota para supervisión 24/7.",
+        svg: "dashboard",
+        src: dashboard,
+        alt: "Automatización Hospital Naval",
+      },
+      {
+        heading: "Sistema Veyefish",
+        content:
+          "Solución de visión computarizada para el conteo automático de peces. Utiliza cámaras de alta definición y software especializado para asegurar trazabilidad y datos confiables en tiempo real.",
         svg: "house",
         src: construction,
-        alt: "Gray metal building frame near tower crane during daytime",
+        alt: "Tecnología de visión Veyefish",
+      },
+      {
+        heading: "Proyecto ESTOA (IoT)",
+        content:
+          "Embarcación inteligente con integración de IoT, domótica Zigbee y redes NMEA2000. Control integral de navegación y energía mediante paneles HMI y gestión remota vía app móvil.",
+        svg: "dashboard",
+        src: dashboard,
+        alt: "Embarcación conectada Proyecto ESTOA",
       },
     ]}
   />
 
   <TestimonialsSection
-    title="Fast-Track Your Projects"
-    subTitle="At ScrewFast, we ensure a swift start with instant account setup. Experience the speed of construction redefined."
-    ;
-    testimonials={[
-      {
-        content:
-          "ScrewFast dramatically boosted our project efficiency. Setup was instant, and their rapid response times are phenomenal. Truly a game-changer in hardware and construction support!",
-        author: "Samantha Ruiz",
-        role: "Chief Operating Officer | ConstructIt Inc.",
-        avatarSrc:
-          "https://images.unsplash.com/photo-1593104547489-5cfb3839a3b5?q=80&w=1453&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80",
-      },
-    ]}
+    title="Respaldo y Confianza"
+    subTitle="En MCP Electric, construimos relaciones a largo plazo basadas en resultados técnicos y soporte oportuno."
+    testimonials={testimonialsData}
     statistics={[
       {
-        count: "70k+",
+        count: "+15",
         description:
-          "customers equipped — from DIY to major construction firms",
+          "años de experiencia en el sector industrial y naval en Magallanes",
       },
       {
-        count: "35%",
+        count: "+40",
         description:
-          "uptick in project efficiency with ScrewFast tools and services",
+          "contratos adjudicados y ejecutados exitosamente con el Estado",
       },
       {
-        count: "15.3%",
+        count: "+250",
         description:
-          "reduction in maintenance costs reported by long-term clients",
+          "proyectos realizados en automatización, montaje y mantenimiento",
       },
       {
-        count: "2x",
-        description: "quicker assembly using innovative fastening solutions",
+        count: "100%",
+        description: "compromiso con la calidad técnica y satisfacción del cliente",
       },
     ]}
   />
 
   <PricingSection pricing={pricing} />
 
-  <FAQ title="Frequently<br />asked questions" faqs={faqs} />
+  <FAQ title="Preguntas<br />frecuentes" faqs={faqs} />
 
   <HeroSectionAlt
-    title="Let's Build Together"
-    subTitle="ScrewFast is an open-source template, meticulously crafted with Astro, Tailwind CSS, and Preline UI frameworks."
-    url="https://github.com/mearashadowfax/ScrewFast"
+    title="¿Listo para iniciar tu proyecto?"
+    subTitle="En MCP Electric estamos preparados para brindar soluciones de automatización y montaje industrial de alto nivel en toda la región de Magallanes."
+    url="/contacto"
   />
 </MainLayout>

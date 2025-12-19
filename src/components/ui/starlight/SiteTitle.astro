@@ -3,18 +3,30 @@ import mainLogo from "@images/starlight/screwfast_logo_dark.svg?raw";
 import docsLogo from "@images/starlight/docs_logo.svg?raw";
 import type { Props } from "@astrojs/starlight/props";
 
-
+// Definición de rutas base
 const main = "/";
+// Si existe un locale (ej. "en"), se añade a la ruta, de lo contrario queda vacío
 const locale = Astro.props.locale ? Astro.props.locale + "/" : "";
 const docs = "/" + locale + "welcome-to-docs/";
 ---
 
 <span class="site-title flex">
-  <a class="main-logo" href={main} set:html={mainLogo} aria-label="ScrewFast" />
-  <a class="docs-logo" href={docs} set:html={docsLogo} aria-label="ScrewFast Docs" />
+  <a 
+    class="main-logo" 
+    href={main} 
+    set:html={mainLogo} 
+    aria-label="MCP Electric" 
+  />
+  <a 
+    class="docs-logo" 
+    href={docs} 
+    set:html={docsLogo} 
+    aria-label="Documentación de MCP Electric" 
+  />
 </span>
 
 <style>
+  /* Configuración del contenedor de logotipos */
   .site-title {
     gap: 1rem;
     margin-right: 1rem;
@@ -27,9 +39,15 @@ const docs = "/" + locale + "welcome-to-docs/";
     display: flex;
     align-items: center;
   }
+
+  /* Reset de outline por defecto para usar efectos personalizados */
   .site-title a:focus-visible {
     outline: 0;
   }
+
+  /* Animación sutil al enfocar o pasar el ratón: 
+    Eleva el logo ligeramente (1px) para dar feedback visual 
+  */
   .site-title a:focus-visible > :global(*) {
     transform: translateY(calc(.1rem * -1));
     transition: transform 250ms cubic-bezier(0.33, 1, 0.68, 1);
@@ -39,6 +57,7 @@ const docs = "/" + locale + "welcome-to-docs/";
     width: auto;
     height: auto;
   }
+
   .site-title a:hover :global(svg) {
     transform: translateY(calc(.1rem * -1));
     transition: transform 250ms cubic-bezier(0.33, 1, 0.68, 1);

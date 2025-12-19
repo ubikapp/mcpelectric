@@ -1,50 +1,55 @@
 ---
-// Destructure the properties from Astro.props
+// Desestructurar las propiedades de Astro.props
 const { url, name } = Astro.props;
 
-// Define TypeScript interface for the properties
+// Definir la interfaz TypeScript para las propiedades
 interface Props {
   url: string;
   name: string;
 }
 ---
 
-<!--
-Re-usable link component for navigation bar. Highlights the active link
-by comparing the current URL with the href of each link.
-We assign an ID matching the URL for easy reference in our script.
-If URL is '/' (home page), assign ID as 'home' 
--->
 <a
   id={url === "/" ? "home" : url.replace("/", "")}
   href={url}
   data-astro-prefetch
-  class="rounded-lg text-base font-medium text-neutral-600 outline-hidden ring-zinc-500 hover:text-neutral-500 focus-visible:ring-3 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-neutral-500 dark:focus:outline-hidden md:py-3 md:text-sm 2xl:text-base"
+  class="rounded-lg text-base font-medium text-neutral-600 outline-none ring-zinc-500 transition duration-300 hover:text-red-600 focus-visible:ring-3 dark:text-neutral-400 dark:ring-zinc-200 dark:hover:text-red-500 dark:focus:outline-none md:py-3 md:text-sm 2xl:text-base"
 >
   {name}
 </a>
 
 <script>
+  /**
+   * Este script se encarga de resaltar el enlace activo comparando 
+   * la ruta de la ventana actual con el ID del elemento.
+   */
   document.addEventListener("DOMContentLoaded", function () {
     let url = window.location.pathname;
     let navId;
 
-    if (url === "/") {
+    // Lógica para determinar el ID del elemento actual
+    if (url === "/" || url === "") {
       navId = "home";
     } else {
-      navId = url.replace("/", "");
+      // Eliminamos las barras laterales para que coincida con el ID generado en el HTML
+      navId = url.replace(/\//g, "");
     }
 
     let nav = document.getElementById(navId);
 
     if (nav) {
+      // Eliminamos las clases de estado inactivo/neutro
       nav.classList.remove(
         "text-neutral-600",
         "dark:text-neutral-400",
         "hover:text-neutral-500",
         "dark:hover:text-neutral-500"
       );
-      nav.classList.add("text-orange-400", "dark:text-orange-300");
+      
+      // CAMBIO: Asignamos el color ROJO corporativo para el estado activo
+      nav.classList.add("text-red-600", "dark:text-red-500");
+      
+      // Accesibilidad: indicar que es la página actual
       nav.setAttribute("aria-current", "page");
     }
   });

@@ -16,19 +16,20 @@ interface Props {
     aria-label="Informational Banner"
   >
     <div
-      class="rounded-xl bg-neutral-800 bg-[url('/banner-pattern.svg')] bg-cover bg-center bg-no-repeat p-4 text-center shadow-xs dark:bg-neutral-200"
+      class="rounded-xl p-4 text-center shadow-lg border bg-neutral-800 border-neutral-700 dark:bg-neutral-200 dark:border-neutral-300"
     >
-      <div class="flex items-center justify-center">
-        <div class="ml-auto">
-          {title &&
-          <p
-            class="me-2 inline-block font-medium text-neutral-50 dark:text-neutral-700"
-          >
-            {title}
-          </p>
+      <div class="flex items-center justify-center flex-wrap gap-y-2 sm:flex-nowrap">
+        <div class="ml-auto flex-grow sm:flex-grow-0">
+          {
+            title && (
+              // El texto cambia: blanco en banner oscuro, gris oscuro en banner claro.
+              <p class="me-2 inline-block font-bold text-neutral-50 dark:text-neutral-800">
+                {title}
+              </p>
+            )
           }
           <a
-            class="group inline-flex items-center gap-x-2 rounded-full border-2 border-neutral-50 backdrop-brightness-75 sm:backdrop-brightness-100 px-3 py-2 text-sm font-semibold text-neutral-50 transition duration-300 hover:border-neutral-100/70 hover:text-neutral-50/70 disabled:pointer-events-none disabled:opacity-50 dark:backdrop-brightness-100 dark:border-neutral-700 dark:text-neutral-700 dark:hover:border-neutral-700/70 dark:hover:text-neutral-800/70 dark:focus:outline-hidden"
+            class="group inline-flex items-center gap-x-2 rounded-full border-2 border-neutral-50 px-3 py-2 text-sm font-semibold text-neutral-50 transition duration-300 hover:bg-neutral-50 hover:text-neutral-900 dark:border-neutral-800 dark:text-neutral-800 dark:hover:bg-neutral-800 dark:hover:text-neutral-50"
             href={url}
             target="_blank"
           >
@@ -48,10 +49,10 @@ interface Props {
         </div>
         <button
           type="button"
-          class="ml-auto inline-flex items-center gap-x-2 rounded-full border border-transparent bg-gray-100 p-2 text-sm font-semibold text-gray-800 hover:bg-gray-200 disabled:pointer-events-none disabled:opacity-50 dark:bg-neutral-700 dark:text-neutral-50 dark:hover:bg-neutral-700/80 dark:hover:text-neutral-50 dark:focus:outline-hidden"
+          class="ml-auto inline-flex items-center gap-x-2 rounded-full border border-transparent p-2 text-sm font-semibold transition duration-300 bg-neutral-700 text-neutral-50 hover:bg-neutral-600 dark:bg-neutral-300 dark:text-neutral-800 dark:hover:bg-neutral-400"
           id={btnId}
         >
-          <span class="sr-only">Dismiss</span>
+          <span class="sr-only">Cerrar</span>
           <svg
             class="size-5 shrink-0"
             width="24"
@@ -69,6 +70,7 @@ interface Props {
     </div>
   </div>
 </astro-banner>
+
 <script>
   class AstroBanner extends HTMLElement {
     connectedCallback() {

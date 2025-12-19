@@ -14,15 +14,20 @@ import type { Props } from "@astrojs/starlight/props";
 </div>
 
 <style>
+  /* Alineación de iconos de redes sociales */
   .social-icons {
     margin-inline-end: auto;
     gap: 1rem;
     align-items: center;
     padding-block: 1rem;
   }
+  
+  /* Ocultar contenedor si no hay iconos configurados */
   .social-icons:empty {
     display: none;
   }
+
+  /* Estilos del contenedor principal en móvil */
   .mobile-preferences {
     justify-content: space-between;
     flex-wrap: wrap;

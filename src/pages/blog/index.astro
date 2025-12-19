@@ -1,5 +1,5 @@
 ---
-// Import necessary components, modules and types
+// Importación de componentes y utilidades
 import MainLayout from "@/layouts/MainLayout.astro";
 import CardBlog from "@components/ui/cards/CardBlog.astro";
 import CardBlogRecent from "@components/ui/cards/CardBlogRecent.astro";
@@ -8,76 +8,69 @@ import { getCollection } from "astro:content";
 import type { CollectionEntry } from "astro:content";
 import { SITE } from "@data/constants";
 
-// Get all blogs post in English and sort them based on publish date
-
-const englishBlogEntries = await getCollection("blog", ({ id }) => {
-  return id.startsWith("en/");
+// 1. Obtener las entradas de la colección "blog" que están en la subcarpeta "es/"
+const spanishProjectEntries = await getCollection("blog", ({ id }) => {
+  return id.startsWith("es/");
 });
 
-const englishInsightsEntries = await getCollection("insights", ({ id }) => {
-  return id.startsWith("en/");
+// 2. Obtener las entradas de "insights" en español
+const spanishInsightsEntries = await getCollection("insights", ({ id }) => {
+  return id.startsWith("es/");
 });
 
-const blogPosts: CollectionEntry<"blog">[] = englishBlogEntries.sort(
+// 3. Ordenar proyectos por fecha de publicación (Más reciente primero)
+const projects: CollectionEntry<"blog">[] = spanishProjectEntries.sort(
   (a: CollectionEntry<"blog">, b: CollectionEntry<"blog">) =>
     b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
-// Get all insights posts
-const insightPosts: CollectionEntry<"insights">[] = englishInsightsEntries;
 
-// Separate the most recent post from others
-const mostRecentPost: CollectionEntry<"blog"> = blogPosts[0];
-const otherPosts: CollectionEntry<"blog">[] = blogPosts.slice(1);
+const insightPosts: CollectionEntry<"insights">[] = spanishInsightsEntries;
 
-// Define variables for page content
-const title: string = "Your Gateway to Construction Excellence";
+// 4. Lógica de seguridad para evitar errores "Cannot read properties of undefined"
+// Si no hay proyectos, estas variables serán null o arrays vacíos
+const mostRecentProject: CollectionEntry<"blog"> | null = projects.length > 0 ? projects[0] : null;
+const otherProjects: CollectionEntry<"blog">[] = projects.length > 1 ? projects.slice(1) : [];
+
+// 5. Configuración de textos para la página de PROYECTOS
+const title: string = "Proyectos y Obras Destacadas";
 const subTitle: string =
-  "Explore the latest news, tips, and insights from ScrewFast to enhance your construction projects. From product spotlights to project management strategies, our blog is your go-to resource for all things hardware and construction.";
-const secondTitle: string = "Insights";
+  "Explora nuestra trayectoria a través de soluciones eléctricas ejecutadas con los más altos estándares. Cada proyecto refleja el compromiso de MCP Electric con la excelencia técnica.";
+const secondTitle: string = "Fichas Técnicas y Análisis";
 const secondSubTitle: string =
-  "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts. ";
+  "Detalles de ingeniería y desafíos superados en nuestras instalaciones más complejas.";
 
-const pageTitle: string = `Blog | ${SITE.title}`;
-const metaDescription =
-  "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.";
-const ogTitle = "Construction Industry Blog | ScrewFast";
+const pageTitle: string = `Proyectos | ${SITE.title}`;
 ---
 
 <MainLayout
   title={pageTitle}
-  customDescription={metaDescription}
-  customOgTitle={ogTitle}
   structuredData={{
     "@context": "https://schema.org",
-    "@type": "WebPage",
-    "@id": "https://screwfast.uk/blog",
-    url: "https://screwfast.uk/blog",
-    name: "Blog | ScrewFast",
-    description:
-      "Stay up-to-date with the latest trends and developments in the construction industry with insights from ScrewFast's team of industry experts.",
-    isPartOf: {
+    "@type": "CollectionPage",
+    "@id": "https://mcpelectric.cl/proyectos",
+    "url": "https://mcpelectric.cl/proyectos",
+    "name": "Proyectos Realizados | MCP Electric",
+    "description": "Portafolio de obras y proyectos ejecutados por MCP Electric.",
+    "isPartOf": {
       "@type": "WebSite",
-      url: "https://screwfast.uk",
-      name: "ScrewFast",
-      description:
-        "ScrewFast offers top-tier hardware tools and expert construction services to meet all your project needs.",
+      "url": "https://mcpelectric.cl",
+      "name": "MCP Electric"
     },
-    inLanguage: "en-US",
+    "inLanguage": "es-CL"
   }}
 >
   <section
     class="mx-auto max-w-[85rem] space-y-8 px-4 pt-16 sm:px-6 lg:px-8 2xl:max-w-full"
   >
-    {/* Page header */}
     <div class="mx-auto max-w-3xl text-left sm:text-center">
       <h1
-        class="block text-4xl font-bold tracking-tight text-balance text-neutral-800 md:text-5xl lg:text-6xl dark:text-neutral-200"
+        class="block text-4xl font-bold tracking-tight text-neutral-800 md:text-5xl lg:text-6xl dark:text-neutral-200"
       >
         {title}
       </h1>
 
       <p
-        class="mt-4 text-lg text-pretty text-neutral-600 dark:text-neutral-400"
+        class="mt-4 text-lg text-neutral-600 dark:text-neutral-400"
       >
         {subTitle}
       </p>
@@ -87,18 +80,32 @@ const ogTitle = "Construction Industry Blog | ScrewFast";
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
-    {/* Blog posts grid */}
-    <div class="grid gap-6 lg:grid-cols-2">
-      {otherPosts.map((blogEntry) => <CardBlog blogEntry={blogEntry} />)}
-    </div>
+    {/* Verificamos si existen proyectos antes de intentar renderizar */}
+    {projects.length > 0 ? (
+      <>
+        {/* Rejilla de proyectos (excluyendo el más reciente) */}
+        <div class="grid gap-6 lg:grid-cols-2">
+          {otherProjects.map((projectEntry) => (
+            <CardBlog blogEntry={projectEntry} />
+          ))}
+        </div>
+
+        {/* Proyecto Destacado (El más reciente) */}
+        {mostRecentProject && (
+          <div class="mt-10 lg:mt-14">
+            <CardBlogRecent blogEntry={mostRecentProject} />
+          </div>
+        )}
+      </>
+    ) : (
+      /* Mensaje amigable si la carpeta content/blog/es/ está vacía */
+      <div class="py-20 text-center">
+        <p class="text-neutral-500">Aún no se han cargado proyectos en la carpeta content/blog/es/</p>
+      </div>
+    )}
   </section>
-  {/* Most recent blog post */}
-  <section
-    class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
-  >
-    <CardBlogRecent blogEntry={mostRecentPost} />
-  </section>
-  {/* Insights section */}
+
+  {/* Sección de Insights / Análisis Técnicos */}
   <section
     class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
   >
@@ -108,7 +115,7 @@ const ogTitle = "Construction Industry Blog | ScrewFast";
       >
         {secondTitle}
       </h2>
-      <p class="mt-1 text-pretty text-neutral-600 dark:text-neutral-400">
+      <p class="mt-1 text-neutral-600 dark:text-neutral-400">
         {secondSubTitle}
       </p>
     </div>

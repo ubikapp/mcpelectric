@@ -1,34 +1,39 @@
+// src/utils/navigation.ts
+
 // An array of links for navigation bar
 const navBarLinks = [
-  { name: "Home", url: "/" },
-  { name: "Products", url: "/products" },
-  { name: "Services", url: "/services" },
-  { name: "Blog", url: "/blog" },
-  { name: "Contact", url: "/contact" },
+  { name: "Inicio", url: "/" },
+  { name: "Tienda", url: "/products" },
+  { name: "Servicios", url: "/servicios" },
+  { name: "Proyectos", url: "/blog" },
+  { name: "Contacto", url: "/contacto" },
 ];
+
 // An array of links for footer
 const footerLinks = [
   {
-    section: "Ecosystem",
+    section: "Ecosistema",
     links: [
-      { name: "Documentation", url: "/welcome-to-docs/" },
-      { name: "Tools & Equipment", url: "/products" },
-      { name: "Construction Services", url: "/services" },
+      { name: "Documentación", url: "/welcome-to-docs/" },
+      { name: "Productos y Herramientas", url: "/products" },
+      { name: "Servicios Industriales", url: "/servicios" },
     ],
   },
   {
-    section: "Company",
+    section: "Compañía",
     links: [
-      { name: "About us", url: "#" },
-      { name: "Blog", url: "/blog" },
-      { name: "Careers", url: "#" },
-      { name: "Customers", url: "#" },
+      { name: "Nosotros", url: "#" },
+      { name: "Proyectos", url: "/blog" },
+      { name: "Empleo", url: "#" },
+      { name: "Clientes", url: "#" },
     ],
   },
 ];
+
 // An object of links for social icons
 const socialLinks = {
-  facebook: "https://www.facebook.com/",
+  facebook: "https://www.facebook.com/p/MCP-Electric-100092288115172/",
+  instagram: "https://www.instagram.com/mcp_electric/",
   x: "https://twitter.com/",
   github: "https://github.com/mearashadowfax/ScrewFast",
   google: "https://www.google.com/",

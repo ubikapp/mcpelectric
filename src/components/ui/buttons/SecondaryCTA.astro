@@ -1,15 +1,17 @@
 ---
-// Destructure the properties from Astro.props
+// Desestructurar las propiedades de Astro.props
 const { title, url } = Astro.props;
 
-// Define TypeScript interface for the properties
+// Definir interfaz TypeScript para las propiedades
 interface Props {
   title?: string;
   url?: string;
 }
-// Define CSS classes for the hyperlink button
+
+// Definir clases CSS para el botón de hipervínculo
+// NOTA: Se mantiene neutro para jerarquía visual (Tertiary)
 const baseClasses =
-  "inline-flex items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-center text-sm font-medium text-neutral-600 shadow-xs outline-hidden ring-zinc-500 focus-visible:ring-3 transition duration-300";
+  "inline-flex items-center justify-center gap-x-2 rounded-lg px-4 py-3 text-center text-sm font-medium text-neutral-600 shadow-xs outline-none ring-zinc-500 focus-visible:ring-3 transition duration-300";
 const borderClasses = "border border-neutral-200";
 const bgColorClasses = "bg-neutral-300";
 const hoverClasses =
@@ -19,10 +21,9 @@ const fontSizeClasses = "2xl:text-base";
 const ringClasses = "ring-zinc-500";
 
 const darkClasses =
-  "dark:border-neutral-700 dark:bg-zinc-700 dark:text-neutral-300 dark:ring-zinc-200 dark:hover:bg-zinc-600 dark:focus:outline-hidden";
+  "dark:border-neutral-700 dark:bg-zinc-700 dark:text-neutral-300 dark:ring-zinc-200 dark:hover:bg-zinc-600 dark:focus:outline-none";
 ---
 
-<!-- Styled hyperlink -->
 <a
   class={`${baseClasses} ${borderClasses} ${bgColorClasses} ${hoverClasses} ${disableClasses} ${fontSizeClasses} ${ringClasses} ${darkClasses}`}
   href={url}

@@ -1,38 +1,39 @@
 {
-  "title": "Simple, Transparent Pricing",
-  "subTitle": "Boost efficiency with ScrewFast's clear, value-driven plans.",
-  "badge": "Best value",
-  "thirdOption": "Enterprise Solutions?",
-  "btnText": "Get a Custom Quote",
+  "title": "Planes de Soporte y Mantenimiento",
+  "subTitle": "Maximice la vida útil de sus activos y evite paradas no programadas con nuestros contratos de servicio.",
+  "badge": "Más Solicitado",
+  "thirdOption": "¿Necesita una solución a medida?",
+  "btnText": "Cotizar Proyecto Especial",
 
   "starterKit": {
-    "name": "Starter Kit",
-    "description": "Best option for DIY projects",
-    "price": "49",
-    "cents": ".00",
-    "billingFrequency": "USD / monthly",
+    "name": "Mantenimiento Preventivo",
+    "description": "Ideal para comercio y pymes",
+    "price": "3",
+    "cents": ",50",
+    "billingFrequency": "UF / visita",
     "features": [
-      "Key hardware tools",
-      "Access to guides & tutorials",
-      "Standard support"
+      "Inspección visual y técnica",
+      "Limpieza de tableros (aire seco)",
+      "Reapriete de conexiones (Torque)",
+      "Informe de estado (Semáforo)"
     ],
-    "purchaseBtnTitle": "Get the Starter Kit",
-    "purchaseLink": "#"
+    "purchaseBtnTitle": "Agendar Visita",
+    "purchaseLink": "/contacto"
   },
 
   "professionalToolbox": {
-    "name": "Professional Toolbox",
-    "description": "Best for large scale uses",
-    "price": "89",
-    "cents": ".00",
-    "billingFrequency": "USD / monthly",
+    "name": "Contrato SLA Industrial",
+    "description": "Para plantas de proceso y flotas",
+    "price": "15",
+    "cents": ",00",
+    "billingFrequency": "UF / mes + IVA",
     "features": [
-      "Premium tool selection",
-      "Priority support",
-      "Exclusive content & deals",
-      "Bulk order discounts"
+      "Soporte de Emergencia 24/7",
+      "Termografía Infrarroja Semestral",
+      "Análisis de Redes (Calidad de Energía)",
+      "Gestión de Stock de Repuestos Críticos"
     ],
-    "purchaseBtnTitle": "Get the Professional Toolbox",
-    "purchaseLink": "#"
+    "purchaseBtnTitle": "Solicitar Propuesta",
+    "purchaseLink": "/contacto"
   }
 }

@@ -7,23 +7,29 @@ import VtbotStarlight from "astro-vtbot/components/starlight/Base.astro";
 <VtbotStarlight {...Astro.props} viewTransitionsFallback="animate">
   <StarlightHead {...Astro.props}><slot /></StarlightHead>
   <script>
+    // Importación del script de scroll suave global
     import "@scripts/lenisSmoothScroll.js";
   </script>
 </VtbotStarlight>
 
 <style is:global>
-  /* Slow down Chrome's default animation */
+  /* Suavizar la animación por defecto de Chrome para transiciones de vista */
   ::view-transition-group(root) {
     animation-duration: 250ms;
   }
 
-  /* Do not slide over the sidebars */
+  /* Evitar que los elementos se deslicen sobre las barras laterales */
   ::view-transition-group(*) {
     overflow: hidden;
   }
 </style>
 
 <script>
+  /**
+   * Optimización para el buscador de Starlight:
+   * Evita que el scroll suave (Lenis) interfiera con el scroll interno 
+   * de los resultados de búsqueda.
+   */
   document.addEventListener("DOMContentLoaded", () => {
     const siteSearch = document.querySelector(
       "site-search"

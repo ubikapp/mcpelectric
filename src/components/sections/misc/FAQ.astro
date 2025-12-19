@@ -1,30 +1,45 @@
 ---
-// Import the necessary AccordionItem component and JSON data
+// Import the necessary AccordionItem component
 import AccordionItem from "@components/ui/blocks/AccordionItem.astro";
 
-// Define props from Astro
-const { title, faqs } = Astro.props;
+// Definimos los datos directamente aquí (Hardcoded)
+const title = "Resolvemos tus dudas sobre <span class='text-red-600 dark:text-red-500'>proyectos y servicios</span>";
 
-// Define TypeScript interface for props
-interface Faq {
-  question: string;
-  answer: string;
-}
+const faqsData = {
+  subTitle: "¿Tienes dudas sobre nuestros servicios? Aquí respondemos las consultas habituales de nuestros clientes industriales y navales.",
+  faqs: [
+    {
+      question: "¿En qué zonas de la región de Magallanes prestan servicios?",
+      answer:
+        "Operamos en toda la región, incluyendo Punta Arenas, Puerto Natales, Porvenir y Puerto Williams. Contamos con la logística necesaria para trasladarnos a zonas remotas, pontones de acuicultura y realizar trabajos a bordo de embarcaciones en tránsito.",
+    },
+    {
+      question: "¿Realizan proyectos de automatización a medida?",
+      answer:
+        "Sí. Desarrollamos soluciones personalizadas que van desde la programación de PLC y tableros de control, hasta sistemas complejos de monitoreo remoto (IoT), integración de redes NMEA2000 para barcos y sistemas SCADA para plantas de proceso.",
+    },
+    {
+      question: "¿Qué tipo de mantenimiento ofrecen para evitar paradas?",
+      answer:
+        "Ofrecemos mantenimiento preventivo y correctivo (Nivel 1 y 2). Utilizamos tecnología avanzada como termografía cualitativa y cuantitativa, análisis de redes y medición de aislamiento para detectar fallas antes de que afecten tu operación.",
+    },
+    {
+      question: "¿Atienden emergencias fuera de horario?",
+      answer:
+        "Sí, entendemos que la industria no se detiene. Nuestros clientes con planes de mantenimiento activos (Plan Nexus y Plan Pro) cuentan con soporte prioritario y asistencia técnica dedicada para resolver incidencias críticas lo antes posible.",
+    },
+    {
+      question: "¿Sus instalaciones cumplen con la normativa SEC?",
+      answer:
+        "Absolutamente. Todos nuestros proyectos se diseñan y ejecutan bajo estricto cumplimiento de la normativa eléctrica chilena vigente (SEC). Además, en proyectos navales, nos regimos por los estándares internacionales de seguridad marítima.",
+    },
+  ],
+};
 
-interface FaqGroup {
-  subTitle?: string;
-  faqs: Faq[];
-}
-
-interface Props {
-  title: string;
-  faqs: FaqGroup;
-}
 // Define a helper function to generate ids dynamically.
 const makeId = (base: any, index: any) => `${base}${index + 1}`;
 ---
 
-<!-- Main container that holds all content. Customized for different viewport sizes. -->
 <section
   class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 2xl:max-w-full"
 >
@@ -37,17 +52,16 @@ const makeId = (base: any, index: any) => `${base}${index + 1}`;
           <Fragment set:html={title} />
         </h2>
         <p class="mt-1 hidden text-neutral-600 dark:text-neutral-400 md:block">
-          {faqs.subTitle}
+          {faqsData.subTitle}
         </p>
       </div>
     </div>
-    <!-- FAQ accordion items -->
     <div class="md:col-span-3">
       <div
         class="hs-accordion-group divide-y divide-neutral-200 dark:divide-neutral-700"
       >
         {
-          faqs.faqs.map((question, i) => {
+          faqsData.faqs.map((question, i) => {
             // Generate ids dynamically for each FAQ accordion item.
             let id = makeId(
               "hs-basic-with-title-and-arrow-stretched-heading-",

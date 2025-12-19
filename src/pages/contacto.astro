@@ -1,0 +1,36 @@
+---
+// Importación de componentes necesarios
+import MainLayout from "@/layouts/MainLayout.astro";
+import ContactSection from "@components/sections/misc/ContactSection.astro";
+import { SITE } from "@data/constants";
+
+const pageTitle: string = `Contacto | ${SITE.title}`;
+const metaDescription =
+  "¿Tienes dudas sobre un proyecto eléctrico o necesitas una cotización? Contáctanos y diseñemos la solución técnica perfecta para tu industria u hogar en Magallanes.";
+const ogTitle = "Contacta con MCP Electric | Ingeniería Eléctrica";
+---
+
+<MainLayout
+  title={pageTitle}
+  customDescription={metaDescription}
+  customOgTitle={ogTitle}
+  structuredData={{
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": "https://mcpelectric.cl/contacto",
+    url: "https://mcpelectric.cl/contacto",
+    name: "Contacta con Nosotros | MCP Electric",
+    description:
+      "Estamos disponibles para evaluar tus proyectos eléctricos, mantenimientos industriales y soluciones fotovoltaicas en toda la Región de Magallanes.",
+    isPartOf: {
+      "@type": "WebSite",
+      url: "https://mcpelectric.cl",
+      name: "MCP Electric",
+      description:
+        "MCP Electric ofrece servicios de ingeniería, mantenimiento y soluciones eléctricas especializadas.",
+    },
+    inLanguage: "es-CL",
+  }}
+>
+  <ContactSection />
+</MainLayout>

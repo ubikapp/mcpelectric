@@ -1,5 +1,5 @@
 ---
-const { label = Astro.currentLocale === "fr" ? "Adresse e-mail" : "Email address", id, errorId } = Astro.props;
+const { label = "Correo electrónico", id, errorId } = Astro.props;
 
 interface Props {
   label?: string;
@@ -8,27 +8,22 @@ interface Props {
 }
 ---
 
-<!-- Container for the label, input, and validation message -->
 <div>
-  <!-- Label for the email input field -->
   <label
     for={id}
     class="mb-2 block text-sm text-neutral-800 dark:text-neutral-200"
     >{label}</label
   >
-  <!-- Label for the email input field -->
   <div class="relative">
-    <!-- Email input field -->
     <input
       type="email"
       id={id}
       name="email"
       autocomplete="email"
-      class="block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 focus:border-neutral-200 focus:outline-hidden focus:ring-3 focus:ring-neutral-400 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:focus:ring-1"
+      class="block w-full rounded-lg border border-neutral-200 bg-neutral-50 px-4 py-3 text-sm text-neutral-700 focus:border-red-600 focus:outline-none focus:ring-3 focus:ring-red-600 disabled:pointer-events-none disabled:opacity-50 dark:border-neutral-600 dark:bg-neutral-700/30 dark:text-neutral-300 dark:focus:ring-red-500"
       required
       aria-describedby={id}
     />
-    <!-- Hidden error icon -->
     <div class="pointer-events-none absolute inset-y-0 end-0 hidden pe-3">
       <svg
         class="h-5 w-5 text-red-500"
@@ -44,8 +39,7 @@ interface Props {
       </svg>
     </div>
   </div>
-  <!-- Validation message which is hidden by default -->
   <p class="mt-2 hidden text-xs text-red-600" id={errorId}>
-    Please include a valid email address so we can get back to you
+    Por favor, introduce un correo electrónico válido para poder contactarte.
   </p>
 </div>

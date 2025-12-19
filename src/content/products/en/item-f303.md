@@ -1,55 +1,55 @@
 ---
 title: "SF-FN F303"
-description: "Hex Bolts"
+description: "Boulons hexagonaux"
 main:
   id: 4
   content: |
-    Introducing the SF-FN F303 Hex Bolts – the perfect choice for heavy-duty fastening applications. Crafted with precision and durability in mind, these hex bolts provide the strength and reliability you need for your toughest projects.
+    Découvrez les boulons hexagonaux SF-FN F303 – le choix parfait pour les applications de fixation lourdes. Conçus avec précision et durabilité, ces boulons hexagonaux offrent la force et la fiabilité dont vous avez besoin pour vos projets les plus exigeants.
   imgCard: "@/images/product-image-4.avif"
   imgMain: "@/images/product-image-main-4.avif"
-  imgAlt: "Mockup boxes of hex bolts"
+  imgAlt: "Maquettes de boîtes de boulons hexagonaux"
 tabs:
   - id: "tabs-with-card-item-1"
     dataTab: "#tabs-with-card-1"
     title: "Description"
   - id: "tabs-with-card-item-2"
     dataTab: "#tabs-with-card-2"
-    title: "Specifications"
+    title: "Spécifications"
   - id: "tabs-with-card-item-3"
     dataTab: "#tabs-with-card-3"
-    title: "Blueprints"
+    title: "Plans"
 longDescription:
-  title: "Heavy-Duty Fastening Solutions"
+  title: "Solutions de fixation robustes"
   subTitle: |
-    The SF-FN F303 Hex Bolts are designed to handle the toughest fastening challenges with ease. Whether you're working on construction projects or heavy machinery, these hex bolts deliver the strength and reliability you need.
-  btnTitle: "Contact sales to learn more"
+    Les boulons hexagonaux SF-FN F303 sont conçus pour relever les défis de fixation les plus difficiles avec aisance. Que vous travailliez sur des projets de construction ou des machines lourdes, ces boulons hexagonaux offrent la force et la fiabilité nécessaires.
+  btnTitle: "Contactez le service commercial pour en savoir plus"
   btnURL: "#"
 descriptionList:
-  - title: "Strength and Durability"
-    subTitle: "Constructed from high-quality materials, these hex bolts are built to withstand heavy loads and tough conditions."
-  - title: "Precision Engineering"
-    subTitle: "Engineered with precision-cut threads and exact specifications, ensuring a tight and secure fit every time."
-  - title: "Versatility"
-    subTitle: "Suitable for a wide range of applications, from construction to machinery, providing versatile fastening solutions."
+  - title: "Solidité et durabilité"
+    subTitle: "Fabriqués à partir de matériaux de haute qualité, ces boulons hexagonaux sont conçus pour supporter des charges lourdes et des conditions difficiles."
+  - title: "Ingénierie de précision"
+    subTitle: "Conçus avec des filets coupés avec précision et des spécifications exactes, garantissant un ajustement serré et sécurisé à chaque fois."
+  - title: "Polyvalence"
+    subTitle: "Adaptés à une large gamme d'applications, de la construction aux machines, offrant des solutions de fixation polyvalentes."
 specificationsLeft:
-  - title: "Material"
-    subTitle: "Made from premium-grade steel or alloy, offering exceptional strength and corrosion resistance."
-  - title: "Thread Design"
-    subTitle: "Precision-cut threads ensure optimal grip and reliability, even in high-stress environments."
-  - title: "Quantity"
-    subTitle: "Each set includes a sufficient quantity of hex bolts to tackle various projects and applications."
-  - title: "Sizes"
-    subTitle: "Available in a range of sizes to accommodate different project requirements, ensuring versatility and compatibility."
+  - title: "Matériau"
+    subTitle: "Fabriqués en acier ou en alliage de qualité supérieure, offrant une résistance exceptionnelle et une résistance à la corrosion."
+  - title: "Conception du filetage"
+    subTitle: "Des filets coupés avec précision assurent une adhérence optimale et une fiabilité même dans des environnements à haute contrainte."
+  - title: "Quantité"
+    subTitle: "Chaque ensemble comprend une quantité suffisante de boulons hexagonaux pour divers projets et applications."
+  - title: "Tailles"
+    subTitle: "Disponible dans une gamme de tailles pour répondre aux différentes exigences des projets, garantissant polyvalence et compatibilité."
 specificationsRight:
-  - title: "Finish"
-    subTitle: "Finished with a protective coating to enhance corrosion resistance and extend service life."
-  - title: "Load Capacity"
-    subTitle: "Designed to meet or exceed industry standards for load-bearing capacity, ensuring reliable performance under heavy loads."
+  - title: "Finition"
+    subTitle: "Fini avec un revêtement protecteur pour améliorer la résistance à la corrosion et prolonger la durée de vie."
+  - title: "Capacité de charge"
+    subTitle: "Conçus pour répondre ou dépasser les normes industrielles en matière de capacité de charge, garantissant des performances fiables sous des charges lourdes."
   - title: "Certifications"
-    subTitle: "Compliant with relevant industry standards and certifications, guaranteeing quality and reliability."
+    subTitle: "Conformes aux normes et certifications industrielles pertinentes, garantissant qualité et fiabilité."
   - title: "Applications"
-    subTitle: "Ideal for use in construction, machinery, automotive, and other heavy-duty applications that demand strong and reliable fastening."
+    subTitle: "Idéal pour une utilisation dans la construction, les machines, l'automobile et d'autres applications lourdes nécessitant une fixation solide et fiable."
 blueprints:
   first: "@/images/blueprint-1.avif"
-  second: "@/images/blueprint-2.avif"  
+  second: "@/images/blueprint-2.avif"    
 ---
